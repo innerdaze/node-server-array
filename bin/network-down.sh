@@ -1,4 +1,4 @@
-. `dirname $0`/HOSTS
+. `dirname $0`/HOSTS.sh
 
 for HOST in "${HOSTS[@]}"
 do
