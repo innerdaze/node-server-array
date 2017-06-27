@@ -1,5 +1,3 @@
-#!/bin/bash
-
 . `dirname $0`/HOSTS
 
 for HOST in "${HOSTS[@]}"
