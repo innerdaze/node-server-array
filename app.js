@@ -1,4 +1,4 @@
-const http = require('http')
+import http from 'http'
 import { HOSTS } from './config'
 
 const port = 3000
