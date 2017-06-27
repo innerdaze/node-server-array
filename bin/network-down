@@ -1,0 +1,4 @@
+#!/bin/bash
+
+ifconfig lo0 delete 127.0.0.2
+ifconfig lo0 delete 127.0.0.3
