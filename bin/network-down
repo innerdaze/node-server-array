@@ -1,4 +1,6 @@
-. `dirname $0`/HOSTS.sh
+#!/usr/bin/env bash
+
+. `dirname $0`/HOSTS
 
 for HOST in "${HOSTS[@]}"
 do
