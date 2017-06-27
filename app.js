@@ -1,11 +1,6 @@
 const http = require('http')
 import { HOSTS } from './config'
 
-const hostnames = [
-  '127.0.0.1',
-  '127.0.0.2',
-  '127.0.0.3'
-]
 const port = 3000
 
 function callback(req, res) {
@@ -14,9 +9,9 @@ function callback(req, res) {
   res.end('Hello World\n')
 }
 
-for (let i = 0, ln = hostnames.length, hostname, server; i < ln; i++) {
+for (let i = 0, ln = HOSTS.length, hostname, server; i < ln; i++) {
   server = http.createServer(callback)
-  hostname = hostnames[i]
+  hostname = HOSTS[i]
 
    server.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`)

@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   HOSTS: [
     '127.0.0.2',
     '127.0.0.3',

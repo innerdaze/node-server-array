@@ -4,9 +4,10 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "prestart": "sudo ./bin/network-up",
-    "start": "node app.js",
-    "poststart": "sudo ./bin/network-down",
+    "prestart": "npm run ifup",
+    "ifup": "sudo ./bin/network-up",
+    "start": "babel-node app.js",
+    "ifdown": "sudo ./bin/network-down",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
