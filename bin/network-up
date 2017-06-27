@@ -1,4 +1,11 @@
 #!/bin/bash
 
-ifconfig lo0 alias 127.0.0.2 up
-ifconfig lo0 alias 127.0.0.3 up
+TEST1=`ifconfig -uv "lo0" | grep "127.0.0.2"`
+TEST2=`ifconfig -uv "lo0" | grep "127.0.0.3"`
+
+if [[ -z ${TEST1} && -z ${TEST2} ]]; then
+  ifconfig lo0 alias 127.0.0.2 up && echo 127.0.0.2 is up
+  ifconfig lo0 alias 127.0.0.3 up && echo 127.0.0.3 is up
+fi
+
+exit 0

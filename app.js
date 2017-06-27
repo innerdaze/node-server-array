@@ -1,4 +1,5 @@
 const http = require('http')
+import { HOSTS } from './config'
 
 const hostnames = [
   '127.0.0.1',
