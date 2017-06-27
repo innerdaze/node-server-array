@@ -1,11 +1,14 @@
 #!/bin/bash
 
-TEST1=`ifconfig -uv "lo0" | grep "127.0.0.2"`
-TEST2=`ifconfig -uv "lo0" | grep "127.0.0.3"`
+HOSTS=("127.0.0.1" "127.0.0.2" "127.0.0.3")
 
-if [[ -z ${TEST1} && -z ${TEST2} ]]; then
-  ifconfig lo0 alias 127.0.0.2 up && echo 127.0.0.2 is up
-  ifconfig lo0 alias 127.0.0.3 up && echo 127.0.0.3 is up
-fi
+for HOST in "${HOSTS[@]}"
+do
+  if [[ -z $(ifconfig -uv "lo0" | grep ${HOST}) ]]; then
+    ifconfig lo0 alias ${HOST} up && echo ${HOST} is up
+  else
+    echo ${HOST} is already up
+  fi
+done
 
 exit 0

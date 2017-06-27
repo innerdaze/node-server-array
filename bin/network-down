@@ -1,4 +1,14 @@
 #!/bin/bash
 
-ifconfig lo0 delete 127.0.0.2
-ifconfig lo0 delete 127.0.0.3
+HOSTS=("127.0.0.1" "127.0.0.2" "127.0.0.3")
+
+for HOST in "${HOSTS[@]}"
+do
+  if [[ ! -z $(ifconfig -uv "lo0" | grep ${HOST}) ]]; then
+    ifconfig lo0 delete ${HOST} && echo ${HOST} is down
+  else
+    echo ${HOST} is already down
+  fi
+done
+
+exit 0
